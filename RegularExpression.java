@@ -17,7 +17,7 @@ public class RegularExpression {
 	}
 	//method to check for a valid Email
 	public static boolean isValidEmail() {
-	Pattern pattern = Pattern.compile("^[a][b][c].[x][y][z]+@[b][l].[c][o].[i][n]$");
+	Pattern pattern = Pattern.compile("^[a][b][c].[x][y][z][@][b][l].[c][o].[i][n]$");
 	Matcher matcher = pattern.matcher("abc.xyz@bl.co.in");
     return matcher.matches();
 	}	
@@ -30,8 +30,9 @@ public class RegularExpression {
 	//method to check for a valid password
 	//Rule-1: has minimum 8 characters
 	//Rule-2: atleast 1 upper case
+	//Rule-3:atleast 1 numeric number
 	public static boolean isValidPassword(String password) {
-		Pattern pattern = Pattern.compile("^(?=.*[A-Z])([A-Za-z]{8,}$)");
+		Pattern pattern = Pattern.compile("^[A-Za-z0-9]{8,}$");
 		Matcher matcher = pattern.matcher(password);
 	    return matcher.matches();
 	}
@@ -44,7 +45,12 @@ public class RegularExpression {
 		System.out.println("Enter your last name starts with capital and has minimum 3 characters :");
 		String lastName=name.next();
 		System.out.println(isValidLastName(lastName));
-		System.out.println(isValidEmail());
+		if(isValidEmail()){
+			System.out.println("Given Email is Valid");
+		}
+		else {
+			System.out.println("OOPS...Please enter a valid Email");
+		}
 		if(isValidMobileNumber()){
 			System.out.println("Given Number is a Valid Number");
 		}
