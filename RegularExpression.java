@@ -32,7 +32,7 @@ public class RegularExpression {
 	//Rule-2: atleast 1 upper case
 	//Rule-3:atleast 1 numeric number
 	public static boolean isValidPassword(String password) {
-		Pattern pattern = Pattern.compile("^[A-Za-z0-9]{8,}$");
+		Pattern pattern = Pattern.compile("(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[#?!@$%^&*-]).{8,}$");
 		Matcher matcher = pattern.matcher(password);
 	    return matcher.matches();
 	}
