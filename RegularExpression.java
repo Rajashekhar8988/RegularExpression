@@ -47,8 +47,6 @@ public class RegularExpression {
 		System.out.println("Enter a password with minimum 8 characters :");
 		String password=name.next();
 		System.out.println(isValidPassword(password));
-		System.out.println("Enter your mobile number with Country code follow by space and 10 digit number :");
-		String mobileNumber=name.next();
 		if(isValidMobileNumber()){
 			System.out.println("Given Number is a Valid Number");
 		}
