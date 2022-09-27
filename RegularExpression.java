@@ -38,8 +38,6 @@ public class RegularExpression {
 		String lastName=name.next();
 		System.out.println(isValidFirstName(lastName));
 		System.out.println(isValidEmail());
-		System.out.println("Enter your mobile number with Country code follow by space and 10 digit number");
-		String mobileNumber=name.next();
 		if(isValidMobileNumber()){
 			System.out.println("Given Number is a Valid Number");
 		}
