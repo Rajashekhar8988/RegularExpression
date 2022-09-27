@@ -29,8 +29,9 @@ public class RegularExpression {
 		}	
 	//method to check for a valid password
 	//Rule-1: has minimum 8 characters
+	//Rule-2: atleast 1 upper case
 	public static boolean isValidPassword(String password) {
-		Pattern pattern = Pattern.compile("^[A-Za-z]\\w{8,}$");
+		Pattern pattern = Pattern.compile("^(?=.*[A-Z])([A-Za-z]{8,}$)");
 		Matcher matcher = pattern.matcher(password);
 	    return matcher.matches();
 	}
@@ -44,18 +45,14 @@ public class RegularExpression {
 		String lastName=name.next();
 		System.out.println(isValidLastName(lastName));
 		System.out.println(isValidEmail());
-		System.out.println("Enter a password with minimum 8 characters :");
-		String password=name.next();
-		System.out.println(isValidPassword(password));
-		System.out.println("Enter your mobile number with Country code follow by space and 10 digit number :");
-		String mobileNumber=name.next();
 		if(isValidMobileNumber()){
 			System.out.println("Given Number is a Valid Number");
 		}
 		else {
 			System.out.println("OOPS...Please enter a valid Number");
 		}
-		
-		
+		System.out.println("Enter a password with minimum 8 characters having atleast 1 upper case :");
+		String password=name.next();
+		System.out.println(isValidPassword(password));	
 }
 }
