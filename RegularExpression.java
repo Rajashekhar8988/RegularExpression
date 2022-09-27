@@ -21,13 +21,19 @@ public class RegularExpression {
 	Matcher matcher = pattern.matcher("abc.xyz@bl.co.in");
     return matcher.matches();
 	}	
-	//	//method to check for a valid mobile number
+	//method to check for a valid mobile number
 	public static boolean isValidMobileNumber() {
-		Pattern pattern = Pattern.compile("[+][1-9]{1,3} [0-9]{10}$");
+		Pattern pattern = Pattern.compile("^[+][1-9]{1,3} [0-9]{10}$");
 		Matcher matcher = pattern.matcher("+91 9876543212");
-	    return matcher.matches();
-	    
+	    return matcher.matches();    
 		}	
+	//method to check for a valid password
+	//Rule-1: has minimum 8 characters
+	public static boolean isValidPassword(String password) {
+		Pattern pattern = Pattern.compile("^[A-Za-z]\\w{8,}$");
+		Matcher matcher = pattern.matcher(password);
+	    return matcher.matches();
+	}
 	public static void main(String[] args) {
 		//user input
 		Scanner name = new Scanner(System.in);
@@ -36,9 +42,12 @@ public class RegularExpression {
 		System.out.println(isValidFirstName(firstName));
 		System.out.println("Enter your last name starts with capital and has minimum 3 characters :");
 		String lastName=name.next();
-		System.out.println(isValidFirstName(lastName));
+		System.out.println(isValidLastName(lastName));
 		System.out.println(isValidEmail());
-		System.out.println("Enter your mobile number with Country code follow by space and 10 digit number");
+		System.out.println("Enter a password with minimum 8 characters :");
+		String password=name.next();
+		System.out.println(isValidPassword(password));
+		System.out.println("Enter your mobile number with Country code follow by space and 10 digit number :");
 		String mobileNumber=name.next();
 		if(isValidMobileNumber()){
 			System.out.println("Given Number is a Valid Number");
@@ -46,5 +55,7 @@ public class RegularExpression {
 		else {
 			System.out.println("OOPS...Please enter a valid Number");
 		}
+		
+		
 }
 }
