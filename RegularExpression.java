@@ -20,7 +20,7 @@ public class RegularExpression {
 	Pattern pattern = Pattern.compile("^[a][b][c].[x][y][z][@][b][l].[c][o].[i][n]$");
 	Matcher matcher = pattern.matcher("abc.xyz@bl.co.in");
     return matcher.matches();
-	}	
+	}
 	//method to check for a valid mobile number
 	public static boolean isValidMobileNumber() {
 		Pattern pattern = Pattern.compile("^[+][1-9]{1,3} [0-9]{10}$");
@@ -36,6 +36,12 @@ public class RegularExpression {
 		Matcher matcher = pattern.matcher(password);
 	    return matcher.matches();
 	}
+	//method to check for a valid for different Emails
+	public static boolean isValidUserEmail(String emalId) {
+		Pattern pattern = Pattern.compile("^[a-zA-Z-9]+([._+-]*[0-9A-Za-z]+)*@[a-zA-Z0-9]+.[a-zA-Z]{2,4}([.][a-z]{2,4})?$");
+		Matcher matcher = pattern.matcher(emalId);
+	    return matcher.matches();
+		}
 	public static void main(String[] args) {
 		//user input
 		Scanner name = new Scanner(System.in);
@@ -59,6 +65,9 @@ public class RegularExpression {
 		}
 		System.out.println("Enter a password with minimum 8 characters having atleast 1 upper case :");
 		String password=name.next();
-		System.out.println(isValidPassword(password));	
+		System.out.println(isValidPassword(password));
+		System.out.println("Enter a valid email Id  :");
+		String emailId=name.next();
+		System.out.println(isValidUserEmail(emailId));
 }
 }
